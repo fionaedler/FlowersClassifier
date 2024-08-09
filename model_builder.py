@@ -1,10 +1,10 @@
 import torch
 import torchvision
 
-def create_effnetb0_model(num_classes: int):
+def create_effnetb2_model(num_classes: int):
     # Get pretrained weights and model
-    weights = torchvision.models.EfficientNet_B0_Weights.DEFAULT
-    model = torchvision.models.efficientnet_b0(weights=weights)
+    weights = torchvision.models.EfficientNet_B2_Weights.DEFAULT
+    model = torchvision.models.efficientnet_b2(weights=weights)
 
     # Freeze base layers
     for param in model.parameters():
