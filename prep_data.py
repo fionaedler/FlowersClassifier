@@ -25,7 +25,7 @@ def create_dataloaders(data_path: Path,
             torchvision.transforms.ToTensor()
         ])
 
-    # adding data augmentation to transform for train data?
+    # adding data augmentation to transform for train data
     train_transform = torchvision.transforms.Compose([
         torchvision.transforms.TrivialAugmentWide(),
         transform
@@ -78,3 +78,9 @@ if __name__ == "__main__":
     plt.title(f"{label}: {class_names[label]}")
     plt.show()
     # print(label)
+
+    img = inputs[0]
+    label = targets[0].item()
+    plt.imshow(img.permute(1, 2, 0))
+    plt.title(f"{label}: {class_names[label]}")
+    plt.show()

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 import engine
 import model_builder
+import predictions
 import prep_data
 
 # device agnostic code
@@ -33,7 +34,6 @@ optimizer = torch.optim.Adam(params=effnetb2_model.parameters(), lr=0.001)
 
 # call training/testing loops
 # TODO: Save out model parameters every x epochs?
-
 EPOCHS = 1
 # effnetb2_results = engine.train(model=effnetb2_model,
 #              train_dataloader=train_dataloader,
@@ -42,6 +42,7 @@ EPOCHS = 1
 #              loss_fn=loss_fn,
 #              epochs=EPOCHS,
 #              device=device)
+#TODO: save out results dict?
 
 
 
@@ -54,13 +55,5 @@ model_builder.save_model(model=effnetb2_model,
 
 
 # TODO: create scripts for predictions
+
 # TODO: plot predictions
-
-
-# # Inspect Dataloader
-# inputs, targets = next(iter(train_dataloader))
-# img = inputs[0]
-# label = targets[0].item()
-# plt.imshow(img.permute(1, 2,0))
-# plt.title(f"{label}: {class_names[label]}")
-# plt.show()

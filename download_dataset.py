@@ -17,3 +17,5 @@ def download_and_unzip():
     with zipfile.ZipFile(data_path / target_file, "r") as zip_ref:
         print(f"[INFO] Unzipping {target_file} data...")
         zip_ref.extractall(Path(data_path))
+
+    # TODO: return dataset directory?

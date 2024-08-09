@@ -33,7 +33,7 @@ def save_model(model: torch.nn.Module,
         Example usage:
         save_model(model=model_0,
                    target_dir="models",
-                   model_name="05_going_modular_tingvgg_model.pth")
+                   model_name="effnetb2_model.pth")
         """
     # Create target directory
     target_dir_path = Path(target_dir)
@@ -49,8 +49,13 @@ def save_model(model: torch.nn.Module,
     torch.save(obj=model.state_dict(),
                f=model_save_path)
 
-def load_model(model: torch.nn.Module,
+def load_model(
+            # model: torch.nn.Module,
                model_path: str,
+               num_classes: int,
                device: torch.device = "cpu"
                ):
+
+    model = create_effnetb2_model(num_classes)
     model.load_state_dict(torch.load(f=model_path, map_location=torch.device(device))    )
+    return model

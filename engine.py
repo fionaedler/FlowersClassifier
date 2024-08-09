@@ -63,6 +63,8 @@ def train_step(model: torch.nn.Module,
     train_loss = train_loss / len(dataloader)
     train_acc = train_acc / len(dataloader)
 
+    # TODO: results writer?
+
     return train_loss, train_acc
 
 
