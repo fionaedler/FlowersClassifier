@@ -20,7 +20,7 @@ effnetb0_transform = effnetb0_weights.transforms()
 
 # create DataLoader
 train_dataloader, test_dataloader, class_names = prep_data.create_dataloaders(data_path=data_path, transform=effnetb0_transform)
-
+# print(class_names)
 
 # Call function to create model and adjust output to number of classes
 effnetb0_model = model_builder.create_effnetb0_model(num_classes=len(class_names)).to(device)

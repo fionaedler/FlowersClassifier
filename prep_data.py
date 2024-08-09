@@ -11,10 +11,10 @@ def create_dataloaders(data_path: Path,
 
     # Setup Paths to dataset
     data_path = data_path
-    data = os.path.abspath(os.path.join(data_path, os.pardir))
+    data = Path(os.path.abspath(os.path.join(data_path, os.pardir)))
     train_dir = data_path / "train"
-    test_dir = data_path / "test"
-    valid_dir = data_path / "valid"
+    test_dir = data_path / "valid"
+    valid_dir = data_path / "test"
 
     # Create Temporary Manual Transforms if no transform is passed in
     if transform is None:
