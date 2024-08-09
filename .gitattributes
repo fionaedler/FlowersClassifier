@@ -1,0 +1,4 @@
+data/dataset/ filter=lfs diff=lfs merge=lfs -text
+data/dataset/test filter=lfs diff=lfs merge=lfs -text
+data/dataset/train filter=lfs diff=lfs merge=lfs -text
+data/dataset/valid filter=lfs diff=lfs merge=lfs -text
