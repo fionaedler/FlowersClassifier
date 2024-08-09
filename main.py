@@ -23,16 +23,19 @@ train_dataloader, test_dataloader, class_names = prep_data.create_dataloaders(da
 # print(class_names)
 
 # Call function to create model and adjust output to number of classes
-effnetb2_model = model_builder.create_effnetb0_model(num_classes=len(class_names)).to(device)
+effnetb2_model = model_builder.create_effnetb2_model(num_classes=len(class_names)).to(device)
+
 
 
 # create optimizer and loss function
 loss_fn = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(params=effnetb2_model.parameters(), lr=0.001)
 
-# TODO: call training/testing loops
+# call training/testing loops
+# TODO: Save out model parameters every x epochs?
+
 EPOCHS = 1
-# engine.train(model=effnetb2_model,
+# effnetb2_results = engine.train(model=effnetb2_model,
 #              train_dataloader=train_dataloader,
 #              test_dataloader=test_dataloader,
 #              optimizer=optimizer,
@@ -41,10 +44,16 @@ EPOCHS = 1
 #              device=device)
 
 
-# TODO: save out model
+
+# save out model
+model_dir = "models"
+model_name = "effnetb2_flower_classifier.pth"
+model_builder.save_model(model=effnetb2_model,
+                 target_dir = model_dir,
+                 model_name = model_name)
 
 
-# TODO: create files for predictions
+# TODO: create scripts for predictions
 # TODO: plot predictions
 
 

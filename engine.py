@@ -192,5 +192,7 @@ def train(model: torch.nn.Module,
         results["test_loss"].append(test_loss)
         results["test_acc"].append(test_acc)
 
+        # TODO: Save out model parameters every x epochs?
+
     # Return the filled results at the end of the epochs
     return results
