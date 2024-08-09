@@ -7,6 +7,7 @@ def download_and_unzip():
     source = "https://github.com/fionaedler/FlowersClassifier/raw/main/data/dataset.zip"
     target_file = Path(source).name
     data_path = Path("FlowersClassifier/data/")
+    dataset_path = Path("FlowersClassifier/data/dataset")
 
     with open(data_path / target_file, "wb") as f:
         request = requests.get(source)
@@ -16,6 +17,10 @@ def download_and_unzip():
 
     with zipfile.ZipFile(data_path / target_file, "r") as zip_ref:
         print(f"[INFO] Unzipping {target_file} data...")
-        zip_ref.extractall(Path(data_path))
+        zip_ref.extractall(Path(dataset_path))
 
-    # TODO: return dataset directory?
+    return dataset_path
+
+if __name__ == "__main__":
+    source = "https://github.com/fionaedler/FlowersClassifier/raw/main/data/dataset.zip"
+    target_file = Path(source).name
